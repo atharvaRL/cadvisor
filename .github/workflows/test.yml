@@ -45,6 +45,7 @@ jobs:
         set -ex
         source ${{ matrix.environment-variables }}
         make docker-test-integration
+#       skipped        
 #     - name: Upload cAdvisor log file
 #       uses: actions/upload-artifact@v1
 #       if: failure()
