@@ -47,21 +47,15 @@ docker-test: container-test
 	@echo "docker-test target is deprecated, use container-test instead"
 
 test-integration:
-	#ifeq ($(arch), s390x)
-	#	GO_FLAGS= ./build/build.sh
-	#else
-	#	GO_FLAGS=$(or $(GO_FLAGS),-race) ./build/build.sh
-	#endif
 	GO_FLAGS=$(or $(GO_FLAGS),-race) ./build/build.sh
-	#GO_FLAGS=$(race_flag) ./build/build.sh
 	$(GO_TEST) -c github.com/google/cadvisor/integration/tests/api
 	$(GO_TEST) -c github.com/google/cadvisor/integration/tests/healthz
 	@./build/integration.sh
 
 test-integration-s390x:
-	GO_FLAGS=$(race_flag) ./build/build.sh
-	$(GO_TEST) -c github.com/google/cadvisor/integration/tests/api
-	$(GO_TEST) -c github.com/google/cadvisor/integration/tests/healthz
+	GO_FLAGS= ./build/build.sh
+	go test -c github.com/google/cadvisor/integration/tests/api
+	go test -c github.com/google/cadvisor/integration/tests/healthz
 	@./build/integration.sh
 
 docker-test-integration:
