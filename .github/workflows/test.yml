@@ -81,7 +81,8 @@ jobs:
             lsb-release \
             build-essential \
             git \
-            sudo
+            sudo \
+            wget
             curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
             add-apt-repository \
                "deb [arch=s390x] https://download.docker.com/linux/ubuntu \
@@ -93,7 +94,7 @@ jobs:
             cat /usr/sbin/policy-rc.d 
             export RUNLEVEL=1
             apt-get install -y --no-install-recommends docker-ce
-            curl https://go.dev/dl/go1.18.linux-s390x.tar.gz -o /tmp/go.tar.gz
+            wget -O /tmp/go.tar.gz https://go.dev/dl/go1.18.linux-s390x.tar.gz
             tar -C /usr/local -xzf /tmp/go.tar.gz
             export PATH="$PATH":/usr/local/go/bin
             set -x
