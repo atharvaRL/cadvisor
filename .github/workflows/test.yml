@@ -52,7 +52,7 @@ jobs:
 #       with:
 #         name: cadvisor.log
 #         path: ${{ github.workspace }}/go/src/github.com/google/cadvisor/cadvisor.log
-    test-integration-s390x:
+  test-integration-s390x:
       runs-on: ubuntu-18.04
       name: Build on s390x
       steps:
