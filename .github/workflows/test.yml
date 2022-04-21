@@ -56,6 +56,8 @@ jobs:
       runs-on: ubuntu-18.04
       name: Build on s390x
       steps:
+      - name: workaround permission issue
+        run: git config --global --add safe.directory /home/runner/work/cadvisor/cadvisor/go/src/github.com/google/cadvisor
       - name: Checkout code
         uses: actions/checkout@v2
         with:
