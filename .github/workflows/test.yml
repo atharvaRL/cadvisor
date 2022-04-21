@@ -56,8 +56,6 @@ jobs:
       runs-on: ubuntu-18.04
       name: Build on s390x
       steps:
-      - name: workaround permission issue
-        run: git config --global --add safe.directory /home/runner/work/cadvisor/cadvisor/go/src/github.com/google/cadvisor
       - name: Checkout code
         uses: actions/checkout@v2
         with:
@@ -66,6 +64,8 @@ jobs:
       - name: Enable running multiple architectures
         run: |
           sudo docker run --rm --privileged linuxkit/binfmt:4ea3b9b0938cbd19834c096aa31ff475cc75d281
+      - name: workaround permission issue
+        run: git config --global --add safe.directory /home/runner/work/cadvisor/cadvisor/go/src/github.com/google/cadvisor
       - uses: uraimo/run-on-arch-action@v2.1.2
         with:
           arch: s390x
