@@ -59,7 +59,7 @@ func waitForContainer(alias string, fm framework.Framework) {
 		}
 
 		return nil
-	}, 5*time.Second)
+	}, 10*time.Second)
 	require.NoError(fm.T(), err, "Timed out waiting for container %q to be available in cAdvisor: %v", alias, err)
 }
 
