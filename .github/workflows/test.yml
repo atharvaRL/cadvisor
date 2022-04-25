@@ -101,6 +101,6 @@ jobs:
             export PATH="$PATH":/usr/local/go/bin
             set -x
             git config --global --add safe.directory /home/runner/work/cadvisor/cadvisor/go/src/github.com/google/cadvisor
-            cd $GITHUB_WORKSPACE/go/src/github.com/google/cadvisor && source build/config/plain.sh && make test-integration-s390x
-            docker images
+            sudo docker ps
+            sudo docker images
     
