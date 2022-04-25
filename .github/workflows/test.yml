@@ -65,7 +65,7 @@ jobs:
         run: |
           sudo docker run --rm --privileged linuxkit/binfmt:4ea3b9b0938cbd19834c096aa31ff475cc75d281
       - name: workaround permission issue
-        run: git config --global --add safe.directory /home/runner/work/cadvisor/cadvisor/go/src/github.com/google/cadvisor
+        run: uname -i
       - uses: uraimo/run-on-arch-action@v2.1.2
         with:
           arch: s390x
