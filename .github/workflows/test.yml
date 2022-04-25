@@ -103,7 +103,5 @@ jobs:
             git config --global --add safe.directory /home/runner/work/cadvisor/cadvisor/go/src/github.com/google/cadvisor
             sudo docker ps
             sudo docker images
-            sudo docker run -d k8s.gcr.io/pause:3.2
-            sudo docker ps
-            uname -i
+            cd $GITHUB_WORKSPACE/go/src/github.com/google/cadvisor && source build/config/plain.sh && make test-integration-s390x
     
