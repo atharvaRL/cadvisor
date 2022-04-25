@@ -105,4 +105,5 @@ jobs:
             sudo docker images
             sudo docker run -d k8s.gcr.io/pause:3.2
             sudo docker ps
+            uname -i
     
